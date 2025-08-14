@@ -1,0 +1,295 @@
+/* --- Estilos Base --- */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --text-color: #333;
+    --bg-color: #f4f7fa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.08);
+    --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    --danger-color: #dc3545;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- Header y Navegación (Público) --- */
+.main-header {
+    background: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+.logo { font-size: 1.5rem; font-weight: 700; }
+.main-nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+.btn-primary { 
+    background: var(--gradient); 
+    color: white; 
+}
+.btn-primary:hover { 
+    background: #5c3581;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.btn-secondary { background: #eee; color: #555; }
+.btn-secondary:hover { background: #ddd; }
+.btn-danger { background: var(--danger-color); color: white; }
+.btn-large { font-size: 1.2rem; padding: 1rem 2rem; width: 100%; margin-top: 1rem; box-sizing: border-box; }
+
+/* --- Secciones Públicas --- */
+main { padding: 2rem; }
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--gradient);
+    color: white;
+    border-radius: 12px;
+}
+.hero h1 { font-size: 3rem; margin: 0; }
+
+.product-section, .portfolio-cta, .portfolio-container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+/* --- Grid de Productos y Portafolio --- */
+.product-grid, .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.product-card, .portfolio-grid img {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.product-card { padding-bottom: 1.5rem; }
+
+/* === MODIFICACIÓN PARA IMÁGENES DE PRODUCTO (INDEX) === */
+.product-card img, .portfolio-grid img {
+    width: 100%;
+    height: 400px; /* Aumentamos la altura para dar espacio a las imágenes verticales */
+    object-fit: contain; /* Muestra la imagen completa, sin recortar */
+    background-color: #f0f2f5; /* Fondo suave para el espacio sobrante (letterboxing) */
+}
+
+.product-card h3 { margin: 1rem 0 0.5rem; }
+.price { font-size: 1.2rem; font-weight: 600; color: var(--primary-color); }
+
+/* --- Página de Producto --- */
+.product-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    align-items: start;
+}
+
+/* === MODIFICACIÓN PARA IMAGEN PRINCIPAL (PRODUCTO.PHP) === */
+.product-image-area img { 
+    width: 100%; 
+    height: auto; /* La altura se ajusta automáticamente */
+    max-height: 80vh; /* Limita la altura máxima al 80% de la pantalla */
+    object-fit: contain; /* Asegura que la imagen completa sea visible */
+    border-radius: 8px; 
+}
+
+.product-info-area form input[type="text"],
+.product-info-area form input[type="email"],
+.product-info-area form input[type="tel"] {
+    margin-bottom: 1rem;
+}
+.product-info-area h1, .product-info-area p {
+    text-align: left;
+}
+.extras-section {
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+.extras-section h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.checklist-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+    padding-left: 0;
+}
+.checklist-item input[type="checkbox"] {
+    width: auto;
+}
+.checklist-item label {
+    margin: 0;
+    font-size: 1rem;
+    color: #555;
+}
+.total-section {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    text-align: right;
+}
+
+/* --- Footer Público --- */
+.main-footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    background: #333;
+    color: white;
+}
+
+/* --- ESTILOS PARA EL PANEL DE ADMIN --- */
+.app-container { max-width: 1400px; margin: 2rem auto; padding: 0 2rem; }
+.app-header { background: var(--card-bg); padding: 1.5rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+.app-header h1 { text-align: center; margin: 0 0 1rem 0; background: var(--gradient); color: transparent; background-clip: text; -webkit-background-clip: text; }
+.nav-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; border-bottom: 2px solid #eee; padding-bottom: 1rem; }
+.tab-link { padding: 0.75rem 1.5rem; border: none; background: none; cursor: pointer; font-size: 1rem; font-weight: 600; color: #555; border-radius: 8px; transition: all 0.3s ease; text-decoration: none; }
+.tab-link:hover { background-color: #e9e9f7; color: var(--primary-color); }
+.tab-link.active { background: var(--gradient); color: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.card { background: var(--card-bg); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 1.5rem; }
+.card h2 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; align-items: end; }
+.data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+.data-table th, .data-table td { padding: 1rem; text-align: left; border-bottom: 1px solid #eee; vertical-align: middle; }
+.data-table .actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.actions .btn { padding: 0.4rem 0.8rem; font-size: 0.9rem; }
+input, select, textarea { width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+/* --- Estilos para Notificaciones --- */
+.notification-link { position: relative; display: inline-block; }
+.notification-badge { position: absolute; top: 5px; right: 5px; background-color: var(--danger-color); color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.75rem; font-weight: bold; line-height: 1; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+.card-header h2 { margin: 0; border: none; padding: 0; }
+.notification-row-unread { background-color: #e9e9f7; font-weight: 600; }
+
+/* --- Estilos para inicio de sesión --- */
+.main-nav .btn-login {
+    background: var(--gradient);
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+.main-nav .btn-login:hover {
+    background: #5c3581;
+    color: white;
+}
+
+/* Estilo para el nuevo botón "ENTREGADA" */
+.btn-dark {
+    background-color: #343a40;
+    color: white;
+}
+.btn-dark:hover {
+    background-color: #23272b;
+}
+
+/* Estilo para el indicador de estado en la lista de pedidos */
+.status-badge {
+    display: inline-block;
+    padding: 0.3em 0.6em;
+    font-size: 0.85em;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.status-badge.status-entregado {
+    color: #fff;
+    background-color: #28a745; /* Verde de éxito */
+}
+
+/* Estilo para el banner en la página de ver_pedido.php */
+.status-banner {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-banner.status-entregado {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+/* === NUEVOS ESTILOS PARA PAGOS === */
+.saldo-pendiente {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+.saldo-liquidado {
+    color: var(--success-color);
+    font-weight: bold;
+}
+.status-badge.status-nuevo {
+    color: #fff;
+    background-color: var(--info-color);
+}
+.modal {
+    display: none; position: fixed; z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    overflow: auto; background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background-color: var(--card-bg); margin: 15% auto;
+    padding: 2rem; border-radius: 12px; width: 90%;
+    max-width: 500px; position: relative;
+}
+.close-button {
+    color: #aaa; float: right; font-size: 28px;
+    font-weight: bold; cursor: pointer;
+}
+
+/* === NUEVOS ESTILOS PARA PAGOS === */
+.saldo-pendiente { color: var(--danger-color); font-weight: bold; }
+.saldo-liquidado { color: var(--success-color); font-weight: bold; }
+.status-badge.status-nuevo { background-color: var(--info-color); color: #fff; }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5); }
+.modal-content { background-color: var(--card-bg); margin: 15% auto; padding: 2rem; border-radius: 12px; width: 90%; max-width: 500px; position: relative; }
+.close-button { color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer; }
+
